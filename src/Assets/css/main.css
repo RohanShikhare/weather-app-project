@@ -218,7 +218,7 @@ body {
   fill: black !important;
 }
 .main-body .header .header-block-3 .mode-block .sun-div:hover {
-  background-color: #f6f6f6;
+  background-color: #cacaca;
 }
 .main-body .header .header-block-3 .mode-block .sun-div:hover svg {
   fill: orange !important;
@@ -254,7 +254,7 @@ body {
   fill: black !important;
 }
 .main-body .header .header-block-3 .mode-block .moon-div:hover {
-  background-color: #f6f6f6;
+  background-color: #cacaca;
 }
 .main-body .header .header-block-3 .mode-block .moon-div:hover svg {
   fill: gray !important;

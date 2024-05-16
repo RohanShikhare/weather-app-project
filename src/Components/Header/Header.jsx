@@ -53,8 +53,7 @@ function Header() {
           <div
             className="color-slider"
             style={{
-              left: activeBlock === "sun" ? "0" : "50%",
-              transform: activeBlock === "sun" ? "translateX(0)" : "translateX(-100%)",
+              transform: activeBlock === "sun" ? "translateX(50%)" : "translateX(150%)",
             }}
           ></div>
         </div>
