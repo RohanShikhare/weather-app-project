@@ -12,6 +12,9 @@
     fill: white !important;
     height: 2rem;
     width: 2rem;
+    transition: all .5s ease;
+    position: relative;
+    z-index: 1;
   }
   &:hover{
     background-color: white;
@@ -20,3 +23,4 @@
     }
   }
 }
+

@@ -1,13 +1,12 @@
-@import '_mixin.scss';
+@import "_mixin.scss";
 @font-face {
-  font-family: 'poppins-reg';
-  src: url('../fonts/Poppins-Regular.ttf');
+  font-family: "poppins-reg";
+  src: url("../fonts/Poppins-Regular.ttf");
 }
 @font-face {
-  font-family: 'poppins-light';
-  src: url('../fonts/Poppins-Light.ttf');
+  font-family: "poppins-light";
+  src: url("../fonts/Poppins-Light.ttf");
 }
-
 
 * {
   padding: 0;
@@ -23,85 +22,191 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-body{
-    font-size: 66.67%;
-    height: 100vh;
-    width: 100%;
-    background-color: #2D2D2D;
-    overflow: hidden;
-    font-family: 'poppins-light',Arial, Helvetica, sans-serif;
+body {
+  font-size: 66.67%;
+  height: 100vh;
+  width: 100%;
+  background-color: #2d2d2d;
+  overflow: hidden;
+  font-family: "poppins-light", Arial, Helvetica, sans-serif;
 }
 
 .main-body {
-    background-color: #111015;
-    border-radius: 2.5rem;
-    padding: 1rem;
-    margin: 1rem;
-  //header css start
+  background-color: #111015;
+  border-radius: 2.5rem;
+  padding: 1rem;
+  margin: 1rem;
+  //Header-Start
   .header {
     display: flex;
     align-items: center;
     padding: 1rem;
-    .category {
-      @include icon-div;
-    }
-    .notification {
-      @include icon-div;
-    }
-    .location-block{
-      h3{
-        position: relative;
-        display: inline-block;
-        margin: 0;
-        font-size: 1.6rem;
-        color: white;
-        padding: 1rem ;
-        cursor: pointer;
-        transition: all .5s ease;
-        span{
-          padding: .5rem;
-          svg{
-            fill: white !important;
+    justify-content: space-between;
+    .header-block-1{
+      display: flex;
+      align-items: center;
+      .category {
+        @include icon-div;
+      }
+      .notification {
+        @include icon-div;
+      }
+      .location-block {
+        h3 {
+          position: relative;
+          display: inline-block;
+          margin: 0 1rem;
+          font-size: 1.6rem;
+          color: white;
+          padding: 1rem;
+          cursor: pointer;
+          transition: all 0.5s ease;
+          span {
+            padding: 0.5rem;
+            svg {
+              fill: white !important;
+            }
           }
-        }
-        &::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 0;
-          height: 0;
-          border-top: 0px solid white;
-          border-left: 0px solid white;
-          transition: all 0.3s ease;
-        }
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          width: 0;
-          height: 0;
-          border-bottom: 0px solid white;
-          border-right: 0px solid white;
-          transition: all 0.3s ease;
-        }
-        &:hover{
           &::before {
-            width: 100%;
-            height: 100%;
-            border-top: 1px solid white;
-            border-left: 1px solid white;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-top: 0px solid white;
+            border-left: 0px solid white;
+            transition: all 0.3s ease;
           }
           &::after {
-            width: 100%;
-            height: 100%;
-            border-bottom: 1px solid white;
-            border-right: 1px solid white;
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-bottom: 0px solid white;
+            border-right: 0px solid white;
+            transition: all 0.3s ease;
+          }
+          &:hover {
+            &::before {
+              width: 100%;
+              height: 100%;
+              border-top: 1px solid white;
+              border-left: 1px solid white;
+            }
+            &::after {
+              width: 100%;
+              height: 100%;
+              border-bottom: 1px solid white;
+              border-right: 1px solid white;
+            }
           }
         }
       }
     }
+    .header-block-2{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+      .search-bar {
+        position: relative;
+        span {
+          position: absolute;
+          top: 8px;
+          left: 8px;
+          svg {
+            fill: white !important;
+            height: 2rem;
+            width: 2rem;
+          }
+        }
+        input {
+          padding: .5rem;
+          padding-left: 3.5rem;
+          border-radius: 2rem;
+          background-color: #232325;
+          border: none;
+          width: 60rem;
+          height: 3.5rem;
+          font-size: 1.6rem;
+          color: white;
+          border: 1px solid transparent;
+          transition: all 0.5s ease;
+          &:hover {
+            border: 1px solid white;
+          }
+        }
+      }
+    }
+    .header-block-3{
+      display: flex;
+      align-items: center;
+      .mode-block {
+        margin: 0 1rem;
+        border-radius: 2rem;
+        background-color: #232325;
+        display: flex;
+        .sun-div {
+          @include icon-div;
+          margin: 0;
+          &:hover {
+            background-color: #f6f6f6;
+            svg {
+              fill: orange !important;
+            }
+          }
+          
+        }
+        .moon-div {
+          @include icon-div;
+          margin: 0;
+          &:hover {
+            background-color: #f6f6f6;
+            svg {
+              fill: gray !important;
+            }
+          }
+       
+        }
+        .color-slider{
+          position: absolute;
+          height: 2rem;
+          width: 2rem;       
+          background-color: white;
+          transition: all ease-in-out 0.35s;
+          left: calc(2rem * -1);
+          border-radius: 2rem;
+        }
+      }
+      .user-block {
+        img {
+          margin: 0 1rem;
+          height: 4rem;
+          width: 4rem;
+          border-radius: 50%;
+          border: 1px solid gray;
+          transition: all 0.5s ease;
+          &:hover {
+            border: 1px solid white;
+          }
+        }
+      }
+    }
+    
+   
+    
   }
-  //header css end
+  //Header-End
+
+  //Body-Row-1-Start
+  .body-row-1{
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    
+  }
+  //Body-Row-1-End
 }
