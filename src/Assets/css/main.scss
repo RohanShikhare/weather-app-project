@@ -1,0 +1,107 @@
+@import '_mixin.scss';
+@font-face {
+  font-family: 'poppins-reg';
+  src: url('../fonts/Poppins-Regular.ttf');
+}
+@font-face {
+  font-family: 'poppins-light';
+  src: url('../fonts/Poppins-Light.ttf');
+}
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 62.333%;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body{
+    font-size: 66.67%;
+    height: 100vh;
+    width: 100%;
+    background-color: #2D2D2D;
+    overflow: hidden;
+    font-family: 'poppins-light',Arial, Helvetica, sans-serif;
+}
+
+.main-body {
+    background-color: #111015;
+    border-radius: 2.5rem;
+    padding: 1rem;
+    margin: 1rem;
+  //header css start
+  .header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    .category {
+      @include icon-div;
+    }
+    .notification {
+      @include icon-div;
+    }
+    .location-block{
+      h3{
+        position: relative;
+        display: inline-block;
+        margin: 0;
+        font-size: 1.6rem;
+        color: white;
+        padding: 1rem ;
+        cursor: pointer;
+        transition: all .5s ease;
+        span{
+          padding: .5rem;
+          svg{
+            fill: white !important;
+          }
+        }
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 0;
+          border-top: 0px solid white;
+          border-left: 0px solid white;
+          transition: all 0.3s ease;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 0;
+          height: 0;
+          border-bottom: 0px solid white;
+          border-right: 0px solid white;
+          transition: all 0.3s ease;
+        }
+        &:hover{
+          &::before {
+            width: 100%;
+            height: 100%;
+            border-top: 1px solid white;
+            border-left: 1px solid white;
+          }
+          &::after {
+            width: 100%;
+            height: 100%;
+            border-bottom: 1px solid white;
+            border-right: 1px solid white;
+          }
+        }
+      }
+    }
+  }
+  //header css end
+}
