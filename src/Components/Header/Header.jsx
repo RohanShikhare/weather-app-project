@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiSolidCategory, BiSearch } from "react-icons/bi";
 import { IoIosNotifications } from "react-icons/io";
 import { FaMapLocationDot } from "react-icons/fa6";
@@ -7,6 +7,12 @@ import { BsFillMoonStarsFill } from "react-icons/bs";
 import userAvatar1 from "../../Assets/img/avatar-1.jpg";
 
 function Header() {
+
+  const [activeBlock, setActiveBlock] = useState(null);
+
+  const handleBlockClick = (blockName) => {
+    setActiveBlock(blockName);
+  };
   
 
   return (
@@ -37,13 +43,20 @@ function Header() {
       </div>
       <div className="header-block-3">
         <div className="mode-block">
-          <div className="sun-div">
+          <div className={`sun-div ${activeBlock == "sun" ? "active" : ""}`} onClick={() => handleBlockClick("sun")} >
             <GiBarbedSun />
           </div>
-          <div className="moon-div">
+          <div className={`moon-div ${activeBlock == "moon" ? "active" : ""}`} onClick={() => handleBlockClick("moon")}>
             <BsFillMoonStarsFill />
           </div>
-          <div className="color-slider"></div>
+          {/* <div className="color-slider"></div> */}
+          <div
+            className="color-slider"
+            style={{
+              left: activeBlock === "sun" ? "0" : "50%",
+              transform: activeBlock === "sun" ? "translateX(0)" : "translateX(-100%)",
+            }}
+          ></div>
         </div>
         <div className="user-block">
           <img src={userAvatar1} alt="user-avatar" />
