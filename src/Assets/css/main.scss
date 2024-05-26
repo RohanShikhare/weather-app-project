@@ -13,6 +13,15 @@
   margin: 0;
   box-sizing: border-box;
 }
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    margin: 0;
+    padding: 0;
+  }
+}
 
 html {
   font-optical-sizing: auto;
@@ -35,14 +44,14 @@ body {
   background-color: #111015;
   border-radius: 2.5rem;
   padding: 1rem;
-  margin: 1rem;
+  margin: 1rem 1rem;
   //Header-Start
   .header {
     display: flex;
     align-items: center;
     padding: 1rem;
     justify-content: space-between;
-    .header-block-1{
+    .header-block-1 {
       display: flex;
       align-items: center;
       .category {
@@ -106,7 +115,7 @@ body {
         }
       }
     }
-    .header-block-2{
+    .header-block-2 {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -124,7 +133,7 @@ body {
           }
         }
         input {
-          padding: .5rem;
+          padding: 0.5rem;
           padding-left: 3.5rem;
           border-radius: 2rem;
           background-color: #232325;
@@ -141,7 +150,7 @@ body {
         }
       }
     }
-    .header-block-3{
+    .header-block-3 {
       display: flex;
       align-items: center;
       .mode-block {
@@ -159,10 +168,10 @@ body {
               fill: orange !important;
             }
           }
-          &.active{
-            svg{
+          &.active {
+            svg {
               fill: orange !important;
-              transition: all .5s ease;
+              transition: all 0.5s ease;
             }
           }
         }
@@ -175,23 +184,30 @@ body {
               fill: gray !important;
             }
           }
-          &.active{
-            svg{
+          &.active {
+            svg {
               fill: gray !important;
-              transition: all .5s ease;
+              transition: all 0.5s ease;
             }
           }
-       
         }
-        .color-slider{
+        .color-slider {
           position: absolute;
           padding: 1rem;
           height: 100%;
-          width: 50%;       
+          width: 50%;
           background-color: white;
           transition: all ease-in-out 0.35s;
-          left: calc(2rem * -1);  
+          left: calc(2rem * -1);
           border-radius: 2rem;
+
+          &.sunSlide {
+            left: 0;
+          }
+
+          &.moonSlide {
+            left: 4rem;
+          }
         }
       }
       .user-block {
@@ -208,18 +224,110 @@ body {
         }
       }
     }
-    
-   
-    
   }
   //Header-End
 
   //Body-Row-1-Start
-  .body-row-1{
+  .body-row-1 {
     padding: 1rem;
     display: flex;
     flex-wrap: wrap;
-    
+    .forecast-block {
+      display: flex;
+      justify-content: space-between;
+      ul {
+        display: flex;
+        margin: 0 1rem;
+        li {
+          color: gray;
+          padding: 1rem 0;
+          margin: 0 1rem;
+          font-size: 1.6rem;
+          position: relative;
+          cursor: pointer;
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: silver;
+            transition: width 0.3s ease-in-out;
+          }
+          &:hover {
+            color: silver;
+            &::after {
+              width: 100%;
+            }
+          }
+          &.active {
+            color: white;
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 0;
+              height: 0px;
+              background-color: transparent;
+              &:hover {
+                width: 0;
+              }
+            }
+          }
+        }
+      }
+      .mode-block {
+        border-radius: 2rem;
+        background-color: #232325;
+        display: flex;
+        position: relative;
+        justify-content: space-around;
+        .forecast-type {
+          padding: 1rem;
+          font-size: 1.6rem;
+          color: white;
+          cursor: pointer;
+          position: relative;
+          z-index: 2;
+          margin: 0 1rem;
+          &.active {
+            color: black;
+            font-weight: 600;
+          }
+        }
+        .aq-type {
+          margin: 0 1rem;
+          padding: 1rem;
+          font-size: 1.6rem;
+          color: white;
+          position: relative;
+          z-index: 2;
+          cursor: pointer;
+          &.active {
+            color: black;
+            font-weight: 600;
+          }
+        }
+        .color-slider {
+          position: absolute;
+          padding: 1rem;
+          height: 100%;
+          width: 50%;
+          background-color: white;
+          transition: all ease-in-out 0.35s;
+          left: calc(2rem * -1);
+          border-radius: 2rem;
+          &.f-active {
+            transform: translateX(15%);
+          }
+          &.aq-active {
+            transform: translateX(115%);
+          }
+        }
+      }
+    }
   }
   //Body-Row-1-End
 }

@@ -1,19 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { BiSolidCategory, BiSearch } from "react-icons/bi";
 import { IoIosNotifications } from "react-icons/io";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { GiBarbedSun } from "react-icons/gi";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import userAvatar1 from "../../Assets/img/avatar-1.jpg";
+import { ModeAction } from "../../Redux-Store/actions/modeActions";
+import { useSelector } from "react-redux";
 
 function Header() {
-
-  const [activeBlock, setActiveBlock] = useState(null);
-
-  const handleBlockClick = (blockName) => {
-    setActiveBlock(blockName);
-  };
   
+  const {selectedMode} = useSelector((store) => store.mode);
+  const {setMode} = ModeAction(); 
 
   return (
     <header className="header">
@@ -43,18 +41,22 @@ function Header() {
       </div>
       <div className="header-block-3">
         <div className="mode-block">
-          <div className={`sun-div ${activeBlock == "sun" ? "active" : ""}`} onClick={() => handleBlockClick("sun")} >
+          <div
+            className={`sun-div ${selectedMode == "sun" ? "active" : ""}`}
+            onClick={() => setMode("sun")}
+          >
             <GiBarbedSun />
           </div>
-          <div className={`moon-div ${activeBlock == "moon" ? "active" : ""}`} onClick={() => handleBlockClick("moon")}>
+          <div
+            className={`moon-div ${selectedMode == "moon" ? "active" : ""}`}
+            onClick={() => setMode("moon")}
+          >
             <BsFillMoonStarsFill />
           </div>
-          {/* <div className="color-slider"></div> */}
           <div
-            className="color-slider"
-            style={{
-              transform: activeBlock === "sun" ? "translateX(50%)" : "translateX(150%)",
-            }}
+            className={`color-slider ${
+              selectedMode === "sun" ? "sunSlide" : "moonSlide"
+            }`}
           ></div>
         </div>
         <div className="user-block">
