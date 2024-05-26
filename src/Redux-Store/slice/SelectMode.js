@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const mode = createSlice({
     name: "modeSlice",
     initialState:{
-        selectedMode: "sun"
+        selectedMode: "moon"
     },
     reducers:{
         setSelectedMode: (state,action) => {

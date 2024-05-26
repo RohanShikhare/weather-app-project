@@ -23,6 +23,16 @@ ul {
   }
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
 html {
   font-optical-sizing: auto;
   font-style: normal;
@@ -36,8 +46,39 @@ body {
   height: 100vh;
   width: 100%;
   background-color: #2d2d2d;
-  overflow: hidden;
+  // overflow: hidden;
   font-family: "poppins-light", Arial, Helvetica, sans-serif;
+}
+body::-webkit-scrollbar {
+  width: 5px; /* Width of the scrollbar */
+  height: 5px;
+}
+body::-webkit-scrollbar-track {
+  background-color: gray; /* Color of the track */
+  border-radius: 2rem;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: silver; /* Color of the thumb */
+  border-radius: 2rem;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: white; /* Color of the thumb on hover */
+}
+
+.CardRow::-webkit-scrollbar {
+  width: 5px; /* Width of the scrollbar */
+  height: 5px;
+}
+.CardRow::-webkit-scrollbar-track {
+  background-color: gray; /* Color of the track */
+  border-radius: 2rem;
+}
+.CardRow::-webkit-scrollbar-thumb {
+  background-color: silver; /* Color of the thumb */
+  border-radius: 2rem;
+}
+.CardRow::-webkit-scrollbar-thumb:hover {
+  background-color: white; /* Color of the thumb on hover */
 }
 
 .main-body {
@@ -320,10 +361,111 @@ body {
           left: calc(2rem * -1);
           border-radius: 2rem;
           &.f-active {
-            transform: translateX(15%);
+            transform: translateX(13%);
           }
           &.aq-active {
             transform: translateX(115%);
+          }
+        }
+      }
+    }
+    .CardRow {
+      display: flex;
+      margin: 2rem 1rem;
+      overflow-y: hidden;
+      overflow-x: scroll; 
+      scrollbar-color: red;
+      scroll-behavior: smooth;
+      
+      .Card {
+        border-radius: 2rem;
+        background-color: white;
+        padding: 1rem;
+        margin: 1rem;
+        transition: all .3s ease;
+        height: 23.1rem;
+        cursor: pointer;
+        .card-row-1 {
+          padding: 1rem;
+          color: black;
+          display: flex;
+          justify-content: space-between;
+          font-size: 1.6rem !important;
+          border-bottom: 1px solid gray;
+          text-wrap: nowrap;
+          transition: all .3s ease;
+          p{
+            transition: all .3s ease;
+          }
+        }
+        .card-row-2 {
+          display: flex;
+          color: black;
+          padding: 1rem;
+          justify-content: space-between;
+          align-items: center;
+          transition: all .3s ease;
+          p {
+            font-size: 5rem !important;
+            font-family: "poppins-reg";
+            font-weight: 700;
+            text-wrap: nowrap;
+            transition: all .3s ease;
+          }
+        }
+        .card-row-3 {
+          display: flex;
+          color: black;
+          padding: 0 1rem;
+          justify-content: space-between;
+          gap: 2rem;
+          transition: all .3s ease;
+          &:last-child {
+            padding-bottom: 1rem;
+          }
+          .row-3-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: all .3s ease;
+            p {
+              font-size: 1.4rem !important;
+              margin: 0;
+              text-wrap: nowrap;
+              transition: all .3s ease;
+              &:nth-child(2) {
+                font-size: 1.4rem !important;
+                font-weight: 600;
+                margin: 0;
+              }
+            }
+          }
+        }
+        &.closed{
+          width: 105px;
+          background-color: #232325;
+          &:hover{
+            background-color: black;
+          }
+          p{
+            color: white !important;
+          }
+          .day{
+            width: 100%;
+            text-align: center;
+          }
+          .time{
+            opacity: 0;
+          }
+          .card-row-2{
+            flex-direction: column-reverse;
+            .celcius{
+              font-size: 3rem !important;
+            }
+          }
+          .card-row-3{
+            opacity: 0;
           }
         }
       }
